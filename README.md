@@ -56,7 +56,7 @@ var datastruct: Dictionary = {
 var string: String = CerealObject.stringify(datastruct)
 ```
 
-```
+```gdscript
 var ce_string: String = """{
 	a: "b",
 	boolean: false,
