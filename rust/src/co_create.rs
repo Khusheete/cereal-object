@@ -53,6 +53,94 @@ fn _stringify(variant: &Variant, indent: &str, curr_indent: usize) -> GString {
         VariantType::PackedByteArray => stringify_packed_array!(PackedByteArray, "B"),
         VariantType::PackedStringArray => stringify_packed_array!(PackedStringArray, "String"),
 
+        VariantType::Rect2 => {
+            let rect = Rect2::from_variant(variant);
+            return GString::from(format!(
+                "Rect2({}f, {}f; {}f, {}f)", rect.position.x, rect.position.y,
+                rect.size.x, rect.size.y
+                )
+            );
+        }
+        VariantType::Rect2i => {
+            let rect = Rect2i::from_variant(variant);
+            return GString::from(format!(
+                "Rect2i({}i, {}i; {}i, {}i)", rect.position.x, rect.position.y,
+                rect.size.x, rect.size.y
+                )
+            );
+        }
+        VariantType::Aabb => {
+            let aabb = Aabb::from_variant(variant);
+            return GString::from(format!(
+                "AABB({}f, {}f, {}f; {}f, {}f, {}f)", aabb.position.x, aabb.position.y, aabb.position.z,
+                aabb.size.x, aabb.size.y, aabb.size.z
+                )
+            );
+        }
+
+        VariantType::Color => {
+            let color = Color::from_variant(variant);
+            return GString::from(format!(
+                "Color({}, {}, {}, {})", color.r8(), color.g8(), color.b8(), color.a8()
+            ));
+        }
+        VariantType::Vector2 => {
+            let vec2 = Vector2::from_variant(variant);
+            return GString::from(format!(
+                "Vector2({}f, {}f)", vec2.x, vec2.y
+            ));
+        }
+        VariantType::Vector3 => {
+            let vec3 = Vector3::from_variant(variant);
+            return GString::from(format!(
+                "Vector3({}f, {}f, {}f)", vec3.x, vec3.y, vec3.z
+            ));
+        }
+        VariantType::Vector4 => {
+            let vec4 = Vector4::from_variant(variant);
+            return GString::from(format!(
+                "Vector4({}f, {}f, {}f, {}f)", vec4.x, vec4.y, vec4.z, vec4.w
+            ));
+        }
+
+        VariantType::Vector2i => {
+            let vec2 = Vector2i::from_variant(variant);
+            return GString::from(format!(
+                "Vector2i({}i, {}i)", vec2.x, vec2.y
+            ));
+        }
+        VariantType::Vector3i => {
+            let vec3 = Vector3i::from_variant(variant);
+            return GString::from(format!(
+                "Vector3i({}i, {}i, {}i)", vec3.x, vec3.y, vec3.z
+            ));
+        }
+        VariantType::Vector4i => {
+            let vec4 = Vector4i::from_variant(variant);
+            return GString::from(format!(
+                "Vector4i({}i, {}i, {}i, {}i)", vec4.x, vec4.y, vec4.z, vec4.w
+            ));
+        }
+
+        VariantType::Transform2D => {
+            let trans = Transform2D::from_variant(variant);
+            return GString::from(format!(
+                "Transform2D({}f, {}f; {}f, {}f; {}f, {}f)", trans.a.x, trans.a.y,
+                trans.b.x, trans.b.y,
+                trans.origin.x, trans.origin.y
+            ))
+        }
+        VariantType::Transform3D => {
+            let trans = Transform3D::from_variant(variant);
+            return GString::from(format!(
+                "Transform3D({}f, {}f, {}f; {}f, {}f, {}f; {}f, {}f, {}f; {}f, {}f, {}f)",
+                trans.basis.col_a().x, trans.basis.col_a().y, trans.basis.col_a().z,
+                trans.basis.col_b().x, trans.basis.col_b().y, trans.basis.col_b().z,
+                trans.basis.col_c().x, trans.basis.col_c().y, trans.basis.col_c().z,
+                trans.origin.x, trans.origin.y, trans.origin.z
+            ))
+        }
+
         VariantType::Array => {
             let array = Array::<Variant>::from_variant(variant);
             let mut string = String::from("[");
