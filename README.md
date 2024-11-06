@@ -45,10 +45,10 @@ var datastruct: Dictionary = {
 	"some vector": Vector2i(6, 7),
 	"aabb": AABB(Vector3(-5.2, 7.9, PI), Vector3(12.5, 1, -95.2)),
 	"transform": Transform3D(
-            Vector3(0.09597263, 0.5049345, 0.132819),
-            Vector3(0.1372523, 0.8690669, 0.55455375),
-            Vector3(0.96561974, 0.7665665, 0.1779638),
-            Vector3(0.64600086, 0.8919131, 0.3106943),
+			Vector3(0.09597263, 0.5049345, 0.132819),
+			Vector3(0.1372523, 0.8690669, 0.55455375),
+			Vector3(0.96561974, 0.7665665, 0.1779638),
+			Vector3(0.64600086, 0.8919131, 0.3106943),
 	),
 	"crimson": Color.CRIMSON,
 }
@@ -58,49 +58,49 @@ var string: String = CerealObject.stringify(datastruct)
 
 ```
 var ce_string: String = """{
-    a: "b",
-    boolean: false,
-    not_boolean: true,
-    "super duper complex name": true,
-    string_array: [String,
-        "a",
-        "b",
-        "c"
-    ],
-    float_array: [f64,
-        1f,
-        2f,
-        3f,
-        -0.0000006f
-    ],
-    int_array: [i32,
-        2,
-        1,
-        3,
-        4,
-        7,
-        11,
-        18,
-        29,
-        47
-    ],
-    array: [
-        "A",
-        2,
-        3f,
-        {
-            nested_stuff: 3.141592654f,
-            super_mega_nested: {
-                secret: "password"
-            }
-        }
-    ],
-    rect: Rect2(1f, 2f; 3.1415f, 4f),
-    recti: Rect2i(666i, -42i; 47i, 32i),
-    "some vector": Vector2i(6i, 7i),
-    aabb: AABB(-5.2f, 7.9f, 3.1415927f; 12.5f, 1f, -95.2f),
-    transform: Transform3D(0.09597263f, 0.5049345f, 0.132819f; 0.1372523f, 0.8690669f, 0.55455375f; 0.96561974f, 0.7665665f, 0.1779638f; 0.64600086f, 0.8919131f, 0.3106943f),
-    crimson: Color(220, 20, 60, 255)
+	a: "b",
+	boolean: false,
+	not_boolean: true,
+	"super duper complex name": true,
+	string_array: [String,
+		"a",
+		"b",
+		"c"
+	],
+	float_array: [f64,
+		1f,
+		2f,
+		3f,
+		-0.0000006f
+	],
+	int_array: [i32,
+		2,
+		1,
+		3,
+		4,
+		7,
+		11,
+		18,
+		29,
+		47
+	],
+	array: [
+		"A",
+		2,
+		3f,
+		{
+			nested_stuff: 3.141592654f,
+			super_mega_nested: {
+				secret: "password"
+			}
+		}
+	],
+	rect: Rect2(1f, 2f; 3.1415f, 4f),
+	recti: Rect2i(666i, -42i; 47i, 32i),
+	"some vector": Vector2i(6i, 7i),
+	aabb: AABB(-5.2f, 7.9f, 3.1415927f; 12.5f, 1f, -95.2f),
+	transform: Transform3D(0.09597263f, 0.5049345f, 0.132819f; 0.1372523f, 0.8690669f, 0.55455375f; 0.96561974f, 0.7665665f, 0.1779638f; 0.64600086f, 0.8919131f, 0.3106943f),
+	crimson: Color(220, 20, 60, 255)
 }"""
 
 var parsed: Dictionary = CerealObject.parse_string(ce_string)
